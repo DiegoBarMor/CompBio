@@ -11,14 +11,12 @@ compile_bin() { # create the "hire_gmin" binary
     local dir_build=$REPO_HIRE/GMIN_HiRE/build
     mkdir -p "$dir_build" "$dir_bin"
 
-    cd "$dir_build" || return 1
+    cd "$dir_build"
     FC=gfortran cmake ../source
     make
-    cd - > /dev/null || return 1
+    cd - > /dev/null
 
-    cp "$dir_build/HIREGMIN" "$dir_bin/hire_gmin" || return 1
-    cp "$REPO_HIRE/Examples/GMIN-example/input/scale_RNA.dat" "$dir_bin/" || return 1
-    cp "$REPO_HIRE/Examples/GMIN-example/input/data" "$dir_bin/" || return 1
+    cp "$dir_build/HIREGMIN" "$dir_bin/hire_gmin"
 }
 
 # ------------------------------------------------------------------------------
@@ -31,6 +29,8 @@ _run_hire_gmin() { # execute the "hire_gmin" binary
     fi
 
     return 1 # [WIP]
+    # cp "$dir_params/scale_RNA.dat" "$dir_bin/"
+    # cp "$dir_params/data" "$dir_bin/"
 }
 
 # ------------------------------------------------------------------------------
@@ -40,6 +40,7 @@ if [ "$#" -lt 1 ]; then
 fi
 
 dir_bin=$DIR_HSM/plugins/cbio/bin/hire_gmin
+# dir_params=$DIR_HSM/plugins/cbio/data/hire_gmin
 
 exec="$dir_bin/hire_gmin"
 if [ ! -f "$exec" ]; then

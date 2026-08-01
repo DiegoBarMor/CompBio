@@ -17,14 +17,13 @@ compile_bin() { # create the "hire_topgen" binary
     cd - > /dev/null
 
     cp "$dir_build/Top4HiRE" "$dir_bin/hire_topgen"
-    cp "$REPO_HIRE/Top4HiRE/data/HiRE-RNA_2026.dat" "$dir_bin/"
 }
 
 # ------------------------------------------------------------------------------
 run_bin() { # execute the "hire_topgen" binary
-    local path_dat="$dir_bin/HiRE-RNA_2026.dat"
+    local path_dat="$dir_params/HiRE-RNA_2026.dat"
     if [ ! -f "$path_dat" ]; then
-        echo "Error: HiRE-RNA_2026.dat not found in $dir_bin"
+        echo "Error: HiRE-RNA_2026.dat not found in $dir_params"
         return 1
     fi
 
@@ -47,6 +46,7 @@ if [ "$#" -lt 1 ]; then
 fi
 
 dir_bin=$DIR_HSM/plugins/cbio/bin/hire_topgen
+dir_params=$DIR_HSM/plugins/cbio/data/hire_topgen
 
 exec="$dir_bin/hire_topgen"
 if [ ! -f "$exec" ]; then

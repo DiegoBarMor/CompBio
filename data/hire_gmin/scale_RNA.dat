@@ -1,0 +1,19 @@
+ 1    1.651  ! Bonds
+ 2    9.141  ! Angle scaling
+ 3   11.470  ! Qangle scale
+ 4    0.514  ! Dihedral scale
+ 5   13.998  ! Excl V scaling
+ 6    0.999  ! EPSHB (hbonds)
+ 7    3.000  ! CTIT (hbonds)
+ 8    2.000  ! P (hbonds)
+ 9    0.155  ! Y (hbonds)
+10    0.529  ! alpha (hbonds)
+11    0.500  ! INTSCALE (hbonds)
+12    4.174  ! stack scaling
+13    8.791  ! sugar base scaling
+14    3.692  ! ALJ12 sugar base
+15    4.327  ! BLJ6 sugar base
+16    2.800  ! Debye length
+17    1.800  ! Tit
+18    0.800  ! noWCq
+19    0.000  ! KSAXS

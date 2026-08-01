@@ -17,8 +17,6 @@ compile_bin() { # create the "hire_md" binary
     cd - > /dev/null
 
     cp "$dir_build/HIREMD" "$dir_bin/hire_md"
-    cp "$REPO_HIRE/Examples/MD-example-LD/input/scale_RNA.dat" "$dir_bin/"
-    cp "$REPO_HIRE/Examples/MD-example-LD/input/mddata" "$dir_bin/"
 }
 
 # ------------------------------------------------------------------------------
@@ -38,13 +36,13 @@ run_bin() { # execute the "hire_md" binary
 
     local path_scale="$dir_data/scale_RNA.dat"
     if [ ! -f "$path_scale" ]; then
-        echo "scale_RNA.dat not found in $dir_data. Copying default from $dir_bin."
-        cp "$dir_bin/scale_RNA.dat" "$dir_data/"
+        echo "scale_RNA.dat not found in $dir_data. Copying default from $dir_params."
+        cp "$dir_params/scale_RNA.dat" "$dir_data/"
     fi
 
     if [ ! -f "$dir_data/mddata" ]; then
-        echo "mddata not found in $dir_data. Copying default from $dir_bin."
-        cp "$dir_bin/mddata" "$dir_data/"
+        echo "mddata not found in $dir_data. Copying default from $dir_params."
+        cp "$dir_params/mddata" "$dir_data/"
     fi
 
     cd "$dir_data"
@@ -59,6 +57,7 @@ if [ "$#" -lt 1 ]; then
 fi
 
 dir_bin=$DIR_HSM/plugins/cbio/bin/hire_md
+dir_params=$DIR_HSM/plugins/cbio/data/hire_md
 
 exec="$dir_bin/hire_md"
 if [ ! -f "$exec" ]; then

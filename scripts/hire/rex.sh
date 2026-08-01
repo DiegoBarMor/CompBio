@@ -17,8 +17,6 @@ compile_bin() { # create the "hire_rex" binary
     cd - > /dev/null
 
     cp "$dir_build/HIREMD" "$dir_bin/hire_rex"
-    cp "$REPO_HIRE/Examples/MD-example-LD/input/scale_RNA.dat" "$dir_bin/"
-    cp "$REPO_HIRE/Examples/MD-example-TREX/input/mddata" "$dir_bin/"
 }
 
 # ------------------------------------------------------------------------------
@@ -31,6 +29,8 @@ run_bin() { # execute the "hire_rex" binary
     fi
 
     return 1 # [WIP]
+    # cp "$dir_params/scale_RNA.dat" "$dir_bin/"
+    # cp "$dir_params/mddata" "$dir_bin/"
 }
 
 # ------------------------------------------------------------------------------
@@ -40,6 +40,7 @@ if [ "$#" -lt 1 ]; then
 fi
 
 dir_bin=$DIR_HSM/plugins/cbio/bin/hire_rex
+# dir_params=$DIR_HSM/plugins/cbio/data/hire_rex
 
 exec="$dir_bin/hire_rex"
 if [ ! -f "$exec" ]; then

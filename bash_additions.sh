@@ -21,8 +21,8 @@ hirerun() { # FUNC:
         echo "  fetch  - Clones HiRE repository from GitHub"
         echo "  topgen - Generate HiRE coarse-grained input files for a full-atomistic PDB file: parameters.top, start, start.xyz"
         echo "  md     - Run molecular dynamics"
-        echo "  rex    - Run replica exchange"
-        echo "  gmin   - Run GMIN"
+        echo "  rex    - [WIP] Run replica exchange"
+        echo "  gmin   - [WIP] Run GMIN"
         echo "  purge  - Remove all HiRE binaries and data files"
         echo
     }

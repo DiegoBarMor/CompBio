@@ -1,0 +1,20 @@
+# file names for input files
+COORDINATES start
+SCALEDAT scale_RNA.dat
+TOPOLOGY parameters.top
+# output options
+DUMPCOORDS 2000
+DUMPENERGY 2000
+# DUMPPDB 2000
+RMSD 250 F
+# simulation settings
+MDMODE LD
+#INJECT TEMPERATURE 0.4
+TIMESTEP 0.01
+MDSTEPS 10000000
+# initial minimisation
+MININIT 20000 100 1.0D1
+MINTRACK 100
+# thermalisation
+THERMALISATION 5 200
+THERMALISE_OPTIONS 5 0 1 1000
