@@ -19,11 +19,12 @@ hirerun() { # FUNC:
         echo
         echo "Commands:"
         echo "  fetch  - Clones HiRE repository from GitHub"
+        echo "  purge  - Remove all HiRE binaries and data files"
         echo "  topgen - Generate HiRE coarse-grained input files for a full-atomistic PDB file: parameters.top, start, start.xyz"
         echo "  md     - Run molecular dynamics"
         echo "  rex    - [WIP] Run replica exchange"
         echo "  gmin   - [WIP] Run GMIN"
-        echo "  purge  - Remove all HiRE binaries and data files"
+        echo "  convert - Convert between different file formats"
         echo
     }
 
@@ -42,6 +43,10 @@ hirerun() { # FUNC:
                 fi
                 return 0
                 ;;
+            purge)
+                rm -rf "${DIR_HSM:?}/plugins/cbio/bin" "${REPO_HIRE:?}"/**/build
+                return 0
+                ;;
             topgen)
                 bash "$dir_scripts/topgen.sh" "${@:2}" || return 1
                 return 0
@@ -58,8 +63,8 @@ hirerun() { # FUNC:
                 bash "$dir_scripts/gmin.sh" "${@:2}" || return 1
                 return 0
                 ;;
-            purge)
-                rm -rf "${DIR_HSM:?}/plugins/cbio/bin" "${REPO_HIRE:?}"/**/build
+            convert)
+                bash "$dir_scripts/convert.sh" "${@:2}" || return 1
                 return 0
                 ;;
             -h|--help)
