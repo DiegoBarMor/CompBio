@@ -19,8 +19,9 @@ hirerun() { # FUNC:
         echo
         echo "Commands:"
         echo "  fetch  - Clones HiRE repository from GitHub"
-        echo "  purge  - Remove all HiRE binaries and data files"
+        echo "  reset  - Remove all pre-compiled HiRE binaries and data files (not the source code)"
         echo "  topgen - Generate HiRE coarse-grained input files for a full-atomistic PDB file: parameters.top, start, start.xyz"
+        echo "  pure   - Obtain HiRE energies for a given structure"
         echo "  md     - Run molecular dynamics"
         echo "  rex    - [WIP] Run replica exchange"
         echo "  gmin   - [WIP] Run GMIN"
@@ -43,12 +44,16 @@ hirerun() { # FUNC:
                 fi
                 return 0
                 ;;
-            purge)
+            reset)
                 rm -rf "${DIR_HSM:?}/plugins/cbio/bin" "${REPO_HIRE:?}"/**/build
                 return 0
                 ;;
             topgen)
                 bash "$dir_scripts/topgen.sh" "${@:2}" || return 1
+                return 0
+                ;;
+            pure)
+                bash "$dir_scripts/pure.sh" "${@:2}" || return 1
                 return 0
                 ;;
             md)
